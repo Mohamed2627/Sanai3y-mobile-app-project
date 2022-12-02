@@ -178,7 +178,7 @@ route.put("/updateprofile", async function (req, res) {
     try {
         // get the current client with the help of current token
         const currentToken = req.headers.authorization;
-        const client = await Client.findOneAndUpdate({ token: currentToken }, {...req.body, email: req.body.email.toLowerCase()});
+        const client = await Client.findOneAndUpdate({ token: currentToken }, {...req.body});
         res.status(200).json({ success: true, message: "The profile updated successfully"});
 
         // 
